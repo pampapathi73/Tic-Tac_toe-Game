@@ -11,6 +11,7 @@ namespace Tic_Tac_toe_Game
             tttgame.CreateBoard();
             tttgame.GameInput();
             char[] board = tttgame.CreateBoard();
+            board = tttgame.getUserMove(board);
             tttgame.ShowBoard(board)
             Console.ReadKey();
         }

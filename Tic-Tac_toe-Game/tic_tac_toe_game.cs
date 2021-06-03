@@ -41,6 +41,43 @@ namespace Tic_Tac_toe_Game
             Console.WriteLine("  {0}  |  {1}  |  {2}", board[7], board[8], board[9]);
             Console.WriteLine("     |     |      ");
         }
+        public char[] getUserMove(char[] board)
+        {
+            
+            Console.WriteLine("Select The Location On Board:  ");
+            
+            int ExactLocation = Convert.ToInt32(Console.ReadLine());
+            
+            while (ExactLocation > 9 || ExactLocation < 1)
+            {
+               
+                Console.WriteLine("Invalid exactLocation, select the location on Board b/w 1 to 9 :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine()); // ip
+                ExactLocation = checkBoard(ExactLocation, board); // 1 to 9 
+            }
+          
+            if (ExactLocation == 0)
+            {
+                
+                Console.WriteLine("location already selected");
+                Console.WriteLine("Please Select another location on Tic Tac Toc Board :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine());
+            }
+           
+            else
+                
+                board[ExactLocation] = '0';
+            return board;
+        }
+
+       
+        public int checkBoard(int ExactLocation, char[] board)
+        {
+            if (board[ExactLocation] != ' ')
+                return 0;
+            else
+                return ExactLocation;
+        }
 
     }
 }
