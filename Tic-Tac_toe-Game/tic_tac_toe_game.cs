@@ -78,6 +78,66 @@ namespace Tic_Tac_toe_Game
             else
                 return ExactLocation;
         }
+        public char[] UserMove(char[] board)
+        {
+            //Select location in Your Board Where you want your 0
+            Console.WriteLine("Select The Location On Board:  ");
+            //Store in Int Variable
+            Console.WriteLine("select the location on Board :  ");
+            int ExactLocation = Convert.ToInt32(Console.ReadLine());
+            //validating user location
+            //while loop check if ExactLocation is (less than)9 And  ExactLoaction is (greater) than 1
+            while (ExactLocation > 9 || ExactLocation < 1)
+            {
+                // if other than this it will give an error
+                Console.WriteLine("Invalid exactLocation, select the location on Board b/w 1 to 9 :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine()); // ip
+                ExactLocation = checkBoard(ExactLocation, board); // 1 to 9 
+                Console.WriteLine("invalid location, select the location on Board :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine());
+            }
+            //loop for checking Empty Space
+            //loop to check for empty space
+            bool emptySpace = false;
+            while (true)
+            {
+                //if 0 == 0
+                //checking for free space
+                ExactLocation = CheckBoard(ExactLocation, board);
+                if (ExactLocation == 0)
+                {
+                    //error Location Already Selected
+                    Console.WriteLine("location already selected");
+                    Console.WriteLine("Please Select another location on Board :  ");
+                    Console.WriteLine("The Location Already Selected . Select Another Location on the  Board : ");
+                    ExactLocation = Convert.ToInt32(Console.ReadLine());
+                    //loop to check for empty space
+                    emptySpace = true;
+                }
+                else
+                    board[ExactLocation] = 'x';
+                return board;
+
+                {
+                    //else ExactLocation = '0'
+                    board[ExactLocation] = '0';
+                    break;
+                }
+            }
+            return board;
+        }
+        //checking if board is empty
+        public int checkBoard(int ExactLocation, char[] board)
+        //check the borad is empty or not
+        public int CheckBoard(int ExactLocation, char[] board)
+        {
+            if (board[ExactLocation] != ' ')
+                return 0;
+            return 0;
+            else
+                return ExactLocation;
+            return ExactLocation;
+        }
 
     }
 }
