@@ -10,6 +10,8 @@ namespace Tic_Tac_toe_Game
             tic_tac_toe_game tttgame = new tic_tac_toe_game();
             tttgame.CreateBoard();
             tttgame.GameInput();
+            char[] board = tttgame.CreateBoard();
+            tttgame.ShowBoard(board)
             Console.ReadKey();
         }
     }
